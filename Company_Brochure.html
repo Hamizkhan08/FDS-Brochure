@@ -1,0 +1,802 @@
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;600;700;800&family=Barlow:wght@300;400;500;600&display=swap');
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --steel: #1A2332;
+  --steel-mid: #243044;
+  --steel-light: #2E3D52;
+  --accent: #E8A020;
+  --accent-light: #F5C048;
+  --silver: #8FA3B8;
+  --pale: #D0DCE8;
+  --white: #F4F7FA;
+  --text-muted: #7A90A4;
+}
+
+.brochure {
+  font-family: 'Barlow', sans-serif;
+  background: var(--steel);
+  color: var(--white);
+  max-width: 860px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+/* ── COVER ── */
+.cover {
+  position: relative;
+  background: var(--steel);
+  padding: 0;
+  height: 340px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  overflow: hidden;
+}
+
+.cover-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(232,160,32,0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(232,160,32,0.08) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+.cover-bars {
+  position: absolute;
+  top: 0; right: 0;
+  width: 320px;
+  height: 100%;
+  display: flex;
+  gap: 6px;
+  padding: 0 40px;
+  align-items: stretch;
+  opacity: 0.18;
+}
+
+.cover-bars span {
+  flex: 1;
+  background: var(--accent);
+}
+.cover-bars span:nth-child(1) { margin-top: 40px; }
+.cover-bars span:nth-child(2) { margin-top: 80px; }
+.cover-bars span:nth-child(3) { margin-top: 20px; }
+.cover-bars span:nth-child(4) { margin-top: 60px; }
+.cover-bars span:nth-child(5) { margin-top: 100px; }
+
+.cover-accent-line {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 4px;
+  background: var(--accent);
+}
+
+.cover-content {
+  position: relative;
+  padding: 0 48px 40px;
+}
+
+.cover-tag {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 10px;
+}
+
+.cover-title {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 56px;
+  font-weight: 800;
+  line-height: 0.95;
+  color: var(--white);
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+  margin-bottom: 4px;
+}
+
+.cover-title span {
+  color: var(--accent);
+}
+
+.cover-sub {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 20px;
+  font-weight: 300;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--silver);
+  margin-bottom: 24px;
+}
+
+.cover-meta {
+  display: flex;
+  gap: 32px;
+  flex-wrap: wrap;
+}
+
+.cover-stat {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+}
+
+.cover-stat .num {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--accent);
+}
+
+.cover-stat .label {
+  font-size: 12px;
+  color: var(--silver);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.cover-divider {
+  width: 2px;
+  height: 32px;
+  background: var(--steel-light);
+  align-self: center;
+}
+
+/* ── SECTION COMMON ── */
+.section {
+  padding: 40px 48px;
+  border-top: 0.5px solid rgba(143,163,184,0.2);
+}
+
+.section-label {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 6px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.section-label::before {
+  content: '';
+  display: inline-block;
+  width: 20px;
+  height: 2px;
+  background: var(--accent);
+}
+
+.section-heading {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 32px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  color: var(--white);
+  margin-bottom: 20px;
+}
+
+/* ── ABOUT ── */
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: start;
+}
+
+.about-text {
+  font-size: 14px;
+  line-height: 1.75;
+  color: var(--pale);
+}
+
+.about-text p + p {
+  margin-top: 12px;
+}
+
+.presence-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.presence-card {
+  background: var(--steel-mid);
+  border: 0.5px solid rgba(143,163,184,0.15);
+  border-left: 2px solid var(--accent);
+  padding: 10px 14px;
+}
+
+.presence-card .country {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--white);
+  letter-spacing: 0.05em;
+}
+
+.presence-card .detail {
+  font-size: 11px;
+  color: var(--silver);
+  margin-top: 2px;
+}
+
+/* ── SERVICES ── */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 14px;
+}
+
+.service-card {
+  background: var(--steel-mid);
+  border: 0.5px solid rgba(143,163,184,0.15);
+  padding: 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+.service-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 2px;
+  background: var(--accent);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s;
+}
+
+.service-card:hover::after {
+  transform: scaleX(1);
+}
+
+.service-icon {
+  font-size: 22px;
+  color: var(--accent);
+  margin-bottom: 10px;
+}
+
+.service-name {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--white);
+  margin-bottom: 8px;
+}
+
+.service-desc {
+  font-size: 12px;
+  color: var(--silver);
+  line-height: 1.6;
+}
+
+/* ── PROCESS ── */
+.process-steps {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  position: relative;
+}
+
+.process-steps::before {
+  content: '';
+  position: absolute;
+  top: 26px;
+  left: 40px;
+  right: 40px;
+  height: 1px;
+  background: rgba(232,160,32,0.3);
+}
+
+.step {
+  padding: 0 12px;
+  text-align: center;
+}
+
+.step-num {
+  width: 52px;
+  height: 52px;
+  border: 2px solid var(--accent);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--accent);
+  margin: 0 auto 14px;
+  background: var(--steel);
+  position: relative;
+  z-index: 1;
+}
+
+.step-title {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--white);
+  margin-bottom: 6px;
+}
+
+.step-desc {
+  font-size: 11px;
+  color: var(--silver);
+  line-height: 1.6;
+}
+
+/* ── WHY US ── */
+.why-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+
+.why-card {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  padding: 16px;
+  background: var(--steel-mid);
+  border: 0.5px solid rgba(143,163,184,0.12);
+}
+
+.why-icon {
+  font-size: 18px;
+  color: var(--accent);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.why-title {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--white);
+  margin-bottom: 4px;
+}
+
+.why-text {
+  font-size: 11px;
+  color: var(--silver);
+  line-height: 1.6;
+}
+
+/* ── DELIVERABLES STRIP ── */
+.deliverables {
+  background: var(--accent);
+  padding: 20px 48px;
+  display: flex;
+  gap: 0;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.deliverable-label {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--steel);
+  margin-right: 24px;
+  flex-shrink: 0;
+}
+
+.deliverable-tags {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.dtag {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  background: rgba(26,35,50,0.2);
+  color: var(--steel);
+  padding: 4px 10px;
+}
+
+/* ── STANDARDS STRIP ── */
+.standards {
+  background: var(--steel-light);
+  padding: 18px 48px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.std-label {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-right: 8px;
+}
+
+.std-badge {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  border: 1.5px solid var(--accent);
+  color: var(--accent);
+  padding: 4px 12px;
+}
+
+.std-sep {
+  width: 1px;
+  height: 20px;
+  background: rgba(143,163,184,0.2);
+}
+
+.std-text {
+  font-size: 12px;
+  color: var(--silver);
+}
+
+/* ── FOOTER ── */
+.footer {
+  background: #111820;
+  padding: 28px 48px 24px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 24px;
+}
+
+.footer-brand .brand-name {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 20px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--white);
+  margin-bottom: 6px;
+}
+
+.footer-brand .brand-name span {
+  color: var(--accent);
+}
+
+.footer-brand .brand-tag {
+  font-size: 11px;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+.footer-col-title {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 10px;
+}
+
+.footer-contact-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.footer-contact-row i {
+  font-size: 13px;
+  color: var(--silver);
+  margin-top: 2px;
+  flex-shrink: 0;
+}
+
+.footer-contact-row span {
+  font-size: 12px;
+  color: var(--pale);
+  line-height: 1.5;
+}
+
+.footer-url {
+  font-size: 12px;
+  color: var(--accent);
+  text-decoration: none;
+  margin-top: 4px;
+  display: block;
+}
+
+.footer-bottom {
+  background: #0C1219;
+  padding: 12px 48px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.footer-bottom-text {
+  font-size: 10px;
+  color: var(--text-muted);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.accent-bar {
+  height: 3px;
+  background: var(--accent);
+}
+</style>
+
+<h2 class="sr-only">Falcon Design Solutions — Company Brochure. Expert structural steel detailing firm founded in 2019, serving USA, Canada, Australia, and India.</h2>
+
+<div class="brochure">
+
+  <div class="cover">
+    <div class="cover-grid"></div>
+    <div class="cover-bars">
+      <span></span><span></span><span></span><span></span><span></span>
+    </div>
+    <div class="cover-accent-line"></div>
+    <div class="cover-content">
+      <div class="cover-tag">Steel Detailing Specialists</div>
+      <div class="cover-title">Falcon<br><span>Design</span><br>Solutions</div>
+      <div class="cover-sub">Precision · Fabrication · Excellence</div>
+      <div class="cover-meta">
+        <div class="cover-stat">
+          <span class="num">20+</span>
+          <span class="label">Years Experience</span>
+        </div>
+        <div class="cover-divider"></div>
+        <div class="cover-stat">
+          <span class="num">4</span>
+          <span class="label">Countries</span>
+        </div>
+        <div class="cover-divider"></div>
+        <div class="cover-stat">
+          <span class="num">AISC</span>
+          <span class="label">Compliant</span>
+        </div>
+        <div class="cover-divider"></div>
+        <div class="cover-stat">
+          <span class="num">Est.</span>
+          <span class="label">2019</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ABOUT -->
+  <div class="section">
+    <div class="section-label">About Us</div>
+    <div class="section-heading">Built on Precision</div>
+    <div class="about-grid">
+      <div class="about-text">
+        <p>Falcon Design Solutions is a dynamic team of steel detailers delivering comprehensive shop and field drawings for structural steel fabrication. Founded in 2019, we have rapidly grown into a globally trusted partner for fabricators, architects, and general contractors.</p>
+        <p>We specialize in structural steel, miscellaneous metals, BIM services, and connection design — leveraging cutting-edge 3D detailing software and AISC/NISD-approved practices to deliver results of uncompromising accuracy.</p>
+        <p>Our mission: precise, reliable shop drawings at a fair and competitive price — on time, every time.</p>
+      </div>
+      <div>
+        <div class="footer-col-title" style="margin-bottom:12px;">Global Presence</div>
+        <div class="presence-grid">
+          <div class="presence-card">
+            <div class="country">🇺🇸 United States</div>
+            <div class="detail">Houston, TX</div>
+          </div>
+          <div class="presence-card">
+            <div class="country">🇨🇦 Canada</div>
+            <div class="detail">Active Operations</div>
+          </div>
+          <div class="presence-card">
+            <div class="country">🇦🇺 Australia</div>
+            <div class="detail">Active Operations</div>
+          </div>
+          <div class="presence-card">
+            <div class="country">🇮🇳 India</div>
+            <div class="detail">Nashik, Maharashtra</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SERVICES -->
+  <div class="section">
+    <div class="section-label">Our Services</div>
+    <div class="section-heading">Precision Detailing for Smarter Structures</div>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon"><i class="ti ti-building-bridge" aria-hidden="true"></i></div>
+        <div class="service-name">Structural Steel Detailing</div>
+        <div class="service-desc">Complete shop and erection drawings for beams, columns, braces, and primary structural members. 3D modelling, BOM, CNC/KISS/DXF file delivery included.</div>
+      </div>
+      <div class="service-card">
+        <div class="service-icon"><i class="ti ti-stairs" aria-hidden="true"></i></div>
+        <div class="service-name">Miscellaneous Metals</div>
+        <div class="service-desc">Stairs, handrails, ladders, platforms, grating, bollards, ornamental metalwork, dumpster gates — precise detailing for all secondary steel.</div>
+      </div>
+      <div class="service-card">
+        <div class="service-icon"><i class="ti ti-link" aria-hidden="true"></i></div>
+        <div class="service-name">Connection Design & Stamping</div>
+        <div class="service-desc">Engineer-reviewed bolted and welded connection designs for beams, columns, braces, trusses, and girders in full code conformance.</div>
+      </div>
+      <div class="service-card">
+        <div class="service-icon"><i class="ti ti-calculator" aria-hidden="true"></i></div>
+        <div class="service-name">Estimation Support</div>
+        <div class="service-desc">Rapid, accurate material take-offs and estimation support to empower your bidding process with reliable quantity data.</div>
+      </div>
+      <div class="service-card">
+        <div class="service-icon"><i class="ti ti-box-model" aria-hidden="true"></i></div>
+        <div class="service-name">BIM Services</div>
+        <div class="service-desc">Advanced Building Information Modeling services integrating steel detailing with multi-discipline coordination for clash-free construction.</div>
+      </div>
+      <div class="service-card">
+        <div class="service-icon"><i class="ti ti-layout-dashboard" aria-hidden="true"></i></div>
+        <div class="service-name">Project Management Portal</div>
+        <div class="service-desc">Client-facing real-time tracking portal with daily updates, drawing status logs, and seamless RFI management throughout the project lifecycle.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DELIVERABLES STRIP -->
+  <div class="deliverables">
+    <div class="deliverable-label">File Deliverables</div>
+    <div class="deliverable-tags">
+      <div class="dtag">Shop Drawings</div>
+      <div class="dtag">Erection Drawings</div>
+      <div class="dtag">CNC Files</div>
+      <div class="dtag">KISS Files</div>
+      <div class="dtag">DXF / DWG</div>
+      <div class="dtag">Gather Sheets</div>
+      <div class="dtag">Material Lists</div>
+      <div class="dtag">Field Bolt Summary</div>
+    </div>
+  </div>
+
+  <!-- PROCESS -->
+  <div class="section">
+    <div class="section-label">How We Work</div>
+    <div class="section-heading">How We Deliver Precision</div>
+    <div class="process-steps">
+      <div class="step">
+        <div class="step-num">01</div>
+        <div class="step-title">Planning</div>
+        <div class="step-desc">Project flowchart, critical path mapping, and schedule creation to guarantee on-time delivery.</div>
+      </div>
+      <div class="step">
+        <div class="step-num">02</div>
+        <div class="step-title">Study & Analysis</div>
+        <div class="step-desc">Deep review of all project documents, identifying gaps and defining a full RFI list before work begins.</div>
+      </div>
+      <div class="step">
+        <div class="step-num">03</div>
+        <div class="step-title">Modeling & Detailing</div>
+        <div class="step-desc">AISC-compliant 3D modeling and detailing with dedicated specialist focus per project phase.</div>
+      </div>
+      <div class="step">
+        <div class="step-num">04</div>
+        <div class="step-title">Submission</div>
+        <div class="step-desc">Staged submissions — draft, revision, final — with complete fabrication package release upon approval.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- WHY US -->
+  <div class="section" style="padding-bottom:36px;">
+    <div class="section-label">Why Choose Us</div>
+    <div class="section-heading">The Falcon Advantage</div>
+    <div class="why-grid">
+      <div class="why-card">
+        <div class="why-icon"><i class="ti ti-rosette" aria-hidden="true"></i></div>
+        <div>
+          <div class="why-title">Unmatched Quality</div>
+          <div class="why-text">We don't just meet standards — we set them. Every drawing passes multi-stage QC review before release.</div>
+        </div>
+      </div>
+      <div class="why-card">
+        <div class="why-icon"><i class="ti ti-clock-check" aria-hidden="true"></i></div>
+        <div>
+          <div class="why-title">On-Time Every Time</div>
+          <div class="why-text">Strict scheduling adherence means fabricators can plan confidently with zero downstream delays.</div>
+        </div>
+      </div>
+      <div class="why-card">
+        <div class="why-icon"><i class="ti ti-eye" aria-hidden="true"></i></div>
+        <div>
+          <div class="why-title">Full Transparency</div>
+          <div class="why-text">Daily project status updates via our portal eliminate blind spots between client and detailer.</div>
+        </div>
+      </div>
+      <div class="why-card">
+        <div class="why-icon"><i class="ti ti-cpu" aria-hidden="true"></i></div>
+        <div>
+          <div class="why-title">Modern Technology</div>
+          <div class="why-text">AI-driven automation and data analytics keep us ahead of industry shifts in tools and workflows.</div>
+        </div>
+      </div>
+      <div class="why-card">
+        <div class="why-icon"><i class="ti ti-users" aria-hidden="true"></i></div>
+        <div>
+          <div class="why-title">Expert Team</div>
+          <div class="why-text">AISC/NISD-trained professionals with years of hands-on experience in structural and misc steel.</div>
+        </div>
+      </div>
+      <div class="why-card">
+        <div class="why-icon"><i class="ti ti-microscope" aria-hidden="true"></i></div>
+        <div>
+          <div class="why-title">Client-Centric R&D</div>
+          <div class="why-text">Dedicated R&D team constantly improving machine file customization, software automation, and efficiency.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STANDARDS -->
+  <div class="standards">
+    <span class="std-label">Compliance &amp; Standards</span>
+    <span class="std-badge">AISC</span>
+    <span class="std-badge">NISD</span>
+    <div class="std-sep"></div>
+    <span class="std-text">All modeling, detailing, and erection work strictly follows AISC/NISD-approved programs and quality procedures.</span>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <div class="footer-brand">
+      <div class="brand-name">Falcon <span>Design</span> Solutions</div>
+      <div class="brand-tag">Expert steel detailing for fabricators,<br>architects & general contractors worldwide.</div>
+    </div>
+    <div>
+      <div class="footer-col-title">India Office</div>
+      <div class="footer-contact-row">
+        <i class="ti ti-map-pin" aria-hidden="true"></i>
+        <span>Sukhprada, Kalanagar, Nashik,<br>Maharashtra — 422004</span>
+      </div>
+      <div class="footer-contact-row">
+        <i class="ti ti-phone" aria-hidden="true"></i>
+        <span>(0253) 2977403</span>
+      </div>
+    </div>
+    <div>
+      <div class="footer-col-title">USA Office</div>
+      <div class="footer-contact-row">
+        <i class="ti ti-map-pin" aria-hidden="true"></i>
+        <span>16510 North Chase Drive,<br>Houston, TX 77060</span>
+      </div>
+      <div class="footer-contact-row">
+        <i class="ti ti-phone" aria-hidden="true"></i>
+        <span>+1 (713) 790-7730</span>
+      </div>
+      <div class="footer-contact-row">
+        <i class="ti ti-mail" aria-hidden="true"></i>
+        <span>info@falcondspl.com</span>
+      </div>
+      <a href="https://www.falcondspl.com" class="footer-url" aria-label="Visit Falcon Design Solutions website">www.falcondspl.com</a>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <span class="footer-bottom-text">© 2025 Falcon Design Solutions — All Rights Reserved</span>
+    <span class="footer-bottom-text">Est. 2019 · USA · Canada · Australia · India</span>
+  </div>
+
+  <div class="accent-bar"></div>
+</div>
